@@ -8,6 +8,7 @@ setup(
     packages=find_packages(),
     license='MIT license',
     author_email='',
-    author='Jimmy',
-    description='I calculate'
+    author='cMneth',
+    description='I calculate',
+    install_requires=['matplotlib', 'numpy']
 )

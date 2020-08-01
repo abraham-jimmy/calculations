@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from inspect import getsourcelines
 
 
 # def plottaren(funktion, start, slut, noggrannhet):
@@ -17,28 +18,19 @@ import numpy as np
 
 def plottaren(funktion, start, slut, noggrannhet):
     x = np.linspace(start, slut, noggrannhet)
-    y = eval(funktion)
-    print(funktion)
+    y = funktion(x)
     fig = plt.figure(figsize=(10, 5))
-    # Add a title
     plt.title('En funktion')
-    # Add X and y Label
     plt.xlabel('Tid')
     plt.ylabel('Sträcka')
-    plt.plot(x, y, 'g', label=format(funktion))
+    plt.plot(x, y, 'g', label=getsourcelines(funktion))
     plt.legend()
     plt.grid(True)
     plt.show()
 
 
-plottaren("1/(2 * np.pi)**0.5 * np.exp(-x**2 / 2)", 0, 10, 100)
+def ekvation(x):
+    return np.sin(x ** 3 / 5) * 20
 
 
-
-
-
-
-
-
-
-
+plottaren(lambda x: ekvation(x), 0, 10, 1000)

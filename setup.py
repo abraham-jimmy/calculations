@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='calculations',
-    version='0.1',
+    name='Calculations',
+    version='1',
     packages=find_packages(),
     license='MIT license',
     author_email='',

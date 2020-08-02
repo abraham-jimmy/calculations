@@ -6,6 +6,8 @@ from inspect import getsourcelines
 def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True, legend=None, title=None,
               xlabel=None, ylabel=None):
 
+    assert start < slut
+
     x = np.linspace(start, slut, noggrannhet)
 
     if funktion.__class__.__name__ == "str":
@@ -31,8 +33,8 @@ def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True
         plt.grid(True)
         plt.show(block=block)
 
-    return y, x
+    return x, y
 
 
-plottaren("x**2", block=False, title="En Titel")
-plottaren(lambda x: x ** 2, legend="x^2")
+# plottaren("x**2", block=False, title="En Titel")
+# plottaren(lambda x: x ** 2, legend="x^2")

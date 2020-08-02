@@ -10,7 +10,7 @@ setup(
     name='Calculations',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='1.00',
+    version='1.10',
     packages=find_packages(),
     license='MIT license',
     author_email='cMnethh@gmail.com',

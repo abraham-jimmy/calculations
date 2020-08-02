@@ -50,6 +50,6 @@ def plotfunc(function, start=0, end=5, points=1000, plot=True, block=True, legen
 
     return x, y
 
-print(plotfunc("x**2", start=0, end=2, points=3, legend="x^2", title="A title", xlabel="x", ylabel="y"))
+
 # plotfunc("x**2", block=False, title="A title")
 # plotfunc(lambda x: x ** 2, legend="x^2")

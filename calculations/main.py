@@ -3,9 +3,6 @@ import numpy as np
 from inspect import getsourcelines
 
 
-# noggrannhet=int(input("noggrannhet:"))
-
-
 def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True, legend=None, title=None,
               xlabel=None, ylabel=None):
 

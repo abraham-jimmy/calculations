@@ -6,7 +6,9 @@ from inspect import getsourcelines
 # noggrannhet=int(input("noggrannhet:"))
 
 
-def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True, legend=None):
+def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True, legend=None, title=None,
+              xlabel=None, ylabel=None):
+
     x = np.linspace(start, slut, noggrannhet)
 
     if funktion.__class__.__name__ == "str":
@@ -22,21 +24,18 @@ def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True
 
     if legend is not None:
         label = legend
-
     if plot:
         plt.figure(figsize=(10, 5))
-        plt.title('En funktion')
-        plt.xlabel('Tid')
-        plt.ylabel('Sträcka')
+        plt.title(title)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
         plt.plot(x, y, 'g', label=label)
         plt.legend()
         plt.grid(True)
         plt.show(block=block)
 
-    return y
+    return y, x
 
 
-plottaren("x**2", block=False)
+plottaren("x**2", block=False, title="En Titel")
 plottaren(lambda x: x ** 2, legend="x^2")
-
-

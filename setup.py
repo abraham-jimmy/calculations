@@ -4,11 +4,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='Calculations',
-    version='1',
+    version='1.00',
     packages=find_packages(),
     license='MIT license',
-    author_email='',
+    author_email='cMnethh@gmail.com',
     author='cMneth',
-    description='I calculate',
+    description='To calculate equations and draw diagrams',
     install_requires=['matplotlib', 'numpy', 'wheel']
 )

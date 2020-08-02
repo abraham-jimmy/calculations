@@ -10,5 +10,5 @@ setup(
     author_email='',
     author='cMneth',
     description='I calculate',
-    install_requires=['matplotlib', 'numpy']
+    install_requires=['matplotlib', 'numpy', 'wheel']
 )

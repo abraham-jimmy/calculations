@@ -3,12 +3,16 @@ import numpy as np
 from inspect import getsourcelines
 
 
-def plottaren(funktion, start=0, slut=5, noggrannhet=1000, plot=True, block=True, legend=None, title=None,
-              xlabel=None, ylabel=None):
+def plottaren(funktion, start=0, end=5, points=1000, plot=True, block=True, legend:str=None, title:str=None,
+              xlabel:str=None, ylabel:str=None):
+    """
+    Calculate a function and draw a diagram. Returns function values in y and x.
 
-    assert start < slut
+    :rtype: tuple[np.ndarray, np.ndarray]
+    """
+    assert start < end
 
-    x = np.linspace(start, slut, noggrannhet)
+    x = np.linspace(start, end, points)
 
     if funktion.__class__.__name__ == "str":
         y = eval(funktion)

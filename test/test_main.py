@@ -8,10 +8,10 @@ class CalculationsTest(unittest.TestCase):
         self.assertRaises(AssertionError, plottaren, "x**2", start=6, slut=1)
         self.assertRaises(TypeError, plottaren)
 
-        returnvalue = plottaren("x**2", plot=False, start=0, slut=2, noggrannhet=3)
+        returnvalue = plottaren("x**2", plot=False, start=0, slut=2, points=3)
         self.assertTrue((np.array([0, 1, 2]) == returnvalue[0]).all())
         self.assertTrue((np.array([0, 1, 4]) == returnvalue[1]).all())
 
-        returnvalue = plottaren(lambda x: x**2, plot=False, start=0, slut=2, noggrannhet=3)
+        returnvalue = plottaren(lambda x: x**2, plot=False, start=0, slut=2, points=3)
         self.assertTrue((np.array([0, 1, 2]) == returnvalue[0]).all())
         self.assertTrue((np.array([0, 1, 4]) == returnvalue[1]).all())

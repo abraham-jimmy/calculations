@@ -3,30 +3,41 @@ import numpy as np
 from inspect import getsourcelines
 
 
-def plottaren(funktion, start=0, end=5, points=1000, plot=True, block=True, legend:str=None, title:str=None,
-              xlabel:str=None, ylabel:str=None):
+def plotfunc(function, start=0, end=5, points=1000, plot=True, block=True, legend:str=None, title:str=None,
+             xlabel:str=None, ylabel:str=None):
+
     """
     Calculate a function and draw a diagram. Returns function values in y and x.
 
     :rtype: tuple[np.ndarray, np.ndarray]
+
+    Example:
+
+    plotfunc("x**2", start=0, end=2, points=3)
+
+    -> (array([0., 1., 2.]), array([0., 1., 4.]))
     """
     assert start < end
 
     x = np.linspace(start, end, points)
 
-    if funktion.__class__.__name__ == "str":
-        y = eval(funktion)
-        label = format(funktion)
+    if function.__class__.__name__ == "str":
+        y = eval(function)
+        label = format(function)
 
-    elif funktion.__class__.__name__ == "function":
-        y = funktion(x)
-        label = getsourcelines(funktion)
+    elif function.__class__.__name__ == "function":
+        y = function(x)
+        label = getsourcelines(function)
 
     else:
-        raise AttributeError(f"Got {funktion} but this is not a parameter nor a string")
+        raise AttributeError(f"Got {function} but this is not a parameter nor a string")
 
     if legend is not None:
         label = legend
+    if xlabel is None:
+        xlabel = "x"
+    if ylabel is None:
+        ylabel = "y"
     if plot:
         plt.figure(figsize=(10, 5))
         plt.title(title)
@@ -39,6 +50,6 @@ def plottaren(funktion, start=0, end=5, points=1000, plot=True, block=True, lege
 
     return x, y
 
-
-# plottaren("x**2", block=False, title="En Titel")
-# plottaren(lambda x: x ** 2, legend="x^2")
+print(plotfunc("x**2", start=0, end=2, points=3, legend="x^2", title="A title", xlabel="x", ylabel="y"))
+# plotfunc("x**2", block=False, title="A title")
+# plotfunc(lambda x: x ** 2, legend="x^2")

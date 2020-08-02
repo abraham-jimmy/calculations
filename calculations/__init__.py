@@ -1,1 +1,1 @@
-from calculations.main import plottaren
+from calculations.main import plotfunc
